@@ -76,3 +76,18 @@ body {
     box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.445),
                 inset -5px -5px 15px rgb(255, 255, 255);
 }
+/* Menu responsive */
+@media (max-width: 840px) {
+    .menu {
+       flex-direction: column; 
+       padding: 15px;
+       text-align: center;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        padding-left: 0;
+    }
+    
+}
