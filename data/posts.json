@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "user": {
+      "firstName": "Alice",
+      "lastName": "Dupont",
+      "avatar": "./assets/avatars/avatar1.png"
+    },
+    "content": {
+      "text": "Quel magnifique coucher de soleil hier soir 🌅!",
+      "image": "./assets/posts/sunset.jpg"
+    },
+    "type": "userPost",
+    "timestamp": "2024-11-15T19:45:00"
+  },
+  {
+    "id": 2,
+    "user": {
+      "firstName": "Bob",
+      "lastName": "Martin",
+      "avatar": "./assets/avatars/avatar2.png"
+    },
+    "content": {
+      "text": "Petite pause café pour bien commencer la journée ☕.",
+      "image": "./assets/posts/coffee.jpg"
+    },
+    "type": "userPost",
+    "timestamp": "2024-11-14T10:15:00"
+  },
+  {
+    "id": 3,
+    "user": {
+      "firstName": "Chloé",
+      "lastName": "Lemoine",
+      "avatar": "./assets/avatars/avatar3.png"
+    },
+    "content": {
+      "text": "Super sortie randonnée avec mes amis ce week-end. Les paysages étaient incroyables 🏞️!",
+      "image": "./assets/posts/hiking.jpg"
+    },
+    "type": "userPost",
+    "timestamp": "2024-11-13T18:30:00"
+  },
+  {
+    "id": 4,
+    "user": {
+      "firstName": "David",
+      "lastName": "Moreau",
+      "avatar": "./assets/avatars/avatar4.png"
+    },
+    "content": {
+      "text": "Mon nouveau projet de peinture avance bien 🎨. Hâte de vous montrer le résultat final!",
+      "image": null
+    },
+    "type": "userPost",
+    "timestamp": "2024-11-10T14:50:00"
+  },
+  {
+    "id": 5,
+    "user": {
+      "firstName": "Émilie",
+      "lastName": "Garcia",
+      "avatar": "./assets/avatars/avatar5.png"
+    },
+    "content": {
+      "text": "Une pensée pour tous les animaux abandonnés... Adoptez, ne shoppez pas ❤️🐾!",
+      "image": "./assets/posts/animal_shelter.jpg"
+    },
+    "type": "userPost",
+    "timestamp": "2024-11-09T11:20:00"
+  },
+  {
+    "id": 6,
+    "user": null,
+    "content": {
+      "text": "🌟 Nouveau : Découvrez notre gamme de produits bio et locaux sur Zest Market ! Livraison gratuite pour toute commande avant la fin de la semaine.",
+      "image": "./assets/posts/ad1.jpg"
+    },
+    "type": "ad",
+    "timestamp": "2024-11-14T10:00:00"
+  },
+  {
+    "id": 7,
+    "user": null,
+    "content": {
+      "text": "🚨 Breaking News : Une tempête est attendue dans la région demain. Prenez vos précautions et restez informés via notre application météo.",
+      "image": "./assets/posts/storm.jpg"
+    },
+    "type": "info",
+    "timestamp": "2024-11-14T09:30:00"
+  },
+  {
+    "id": 8,
+    "user": null,
+    "content": {
+      "text": "📣 Offres spéciales : Jusqu'à -50% sur notre collection d'hiver. Rendez-vous en magasin ou sur notre site !",
+      "image": "./assets/posts/ad2.jpg"
+    },
+    "type": "ad",
+    "timestamp": "2024-11-14T11:45:00"
+  },
+  {
+    "id": 9,
+    "user": null,
+    "content": {
+      "text": "🌍 Astuce du jour : Éteignez les lumières inutiles et économisez l'énergie. Chaque geste compte pour notre planète !",
+      "image": null
+    },
+    "type": "info",
+    "timestamp": "2024-11-13T08:00:00"
+  },
+  {
+    "id": 10,
+    "user": null,
+    "content": {
+      "text": "🎉 Rejoignez-nous pour la grande soirée caritative de Zest le 20 novembre ! Inscription gratuite sur notre site.",
+      "image": "./assets/posts/ad3.jpg"
+    },
+    "type": "ad",
+    "timestamp": "2024-11-13T17:30:00"
+  }
+]
