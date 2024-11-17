@@ -1,0 +1,60 @@
+/* Chaque post */
+.post {
+    background-color: #e0f7e9;
+    margin-bottom: 25px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.459),
+                -5px -5px 10px rgb(255, 255, 255);
+    width: 100%;
+}
+
+/* En-tête du post */
+.post-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center; /* Aligne l'avatar et le nom verticalement */
+}
+
+.post-header .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.post-header .username {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.post-header .timestamp {
+    color: #777;
+    font-size: 0.9em;
+}
+
+/* Contenu du post */
+.post-content p {
+    margin: 10px 0;
+}
+
+.post-content .post-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* Style des types de posts */
+.post-type {
+    font-weight: bold;
+    color: #ff6f61;
+}
