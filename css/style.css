@@ -6,6 +6,7 @@ body {
     color: #000;
     margin: 0;
     padding: 0;
+    width: 100%;
 }
 /* Menu principal */
 .menu {
@@ -15,6 +16,7 @@ body {
     right: 0;
     background-color: #a7e667ef;
     padding: 25px;
+    height: auto;
     box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.2),
                 inset -5px -5px 10px rgb(255, 255, 255);
     margin-bottom: 20px;
@@ -81,6 +83,7 @@ body {
     .menu {
        flex-direction: column; 
        padding: 15px;
+       margin: 0;
        text-align: center;
     }
     .nav-links {
@@ -90,4 +93,35 @@ body {
         padding-left: 0;
     }
     
+}
+/* Contenu principal */
+.main-content {
+    margin-top: 140px;
+    padding: 20px;
+}
+/* Contenu principal responsive */ 
+@media (max-width: 840px) {
+    .main-content {
+        margin-top: 180px;
+    }
+}
+@media (max-width: 520px) {
+    .main-content {
+        margin-top: 240px;
+    }
+}
+/* Footer */ 
+.footer {
+    background-color: #a7e667ef;
+    box-shadow: inset -5px -5px 10px rgba(0, 0, 0, 0.2),
+                inset 5px 5px 10px rgb(255, 255, 255);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 25px;
+    text-align: center;
+}
+.footer p {
+    font-size: large;
 }
