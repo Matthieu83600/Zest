@@ -97,6 +97,9 @@ body {
 }
 /* Contenu principal */
 .main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: 140px;
     padding: 20px;
 }
