@@ -11,6 +11,12 @@
     gap: 50px;
     margin-top: 15px;
 }
+@media (max-width: 430px) {
+    .filter-sort {
+        align-items: center;
+        flex-direction: column;
+    }
+}
 /* Barre de recherche */
 .research input {
     padding: 8px 15px;
@@ -111,15 +117,47 @@
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5), -3px -3px 6px rgb(255, 255, 255);
 }
-
 /* Effet de survol des boutons */
 .friends-card .actions button:hover {
     background-color: #d1d1d1;
     box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.7), -6px -6px 12px rgba(255, 255, 255, 0.8);
 }
-
 /* Si vous voulez que l'ombre soit plus douce */
 .friends-card .actions button:active {
     box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5), inset -2px -2px 5px rgba(255, 255, 255, 0.8);
+}
+/* Responsive pour les petits écrans */
+@media (max-width: 380px) {
+  #friends-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+  .friends-card {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    padding: 15px;
+    width: 100%; 
+    box-sizing: border-box;
+  }
+  .friends-card .infos {
+    text-align: center;
+  }
+  .friends-card .name {
+    flex-direction: column;
+    gap: 5px;
+  }
+  .friends-card .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
+  }
+  .friends-card .actions button {
+    font-size: 14px;
+    padding: 8px;
+  }
 }
 
