@@ -2,7 +2,7 @@
 body {
     font-family: Arial, sans-serif;
     font-size: 14px;
-    background-color: #d4d4d4;
+    background-color: #aaaaaa;
     color: #000;
     margin: 0;
     padding: 0;
@@ -115,7 +115,7 @@ body {
     background-color: #a7e667ef;
     box-shadow: inset -5px -5px 10px rgba(0, 0, 0, 0.2),
                 inset 5px 5px 10px rgb(255, 255, 255);
-    position: absolute;
+    position: relative;
     left: 0;
     right: 0;
     bottom: 0;

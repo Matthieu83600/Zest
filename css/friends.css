@@ -1,0 +1,125 @@
+#friends-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 0 20px 0 20px;
+}
+.filter-sort {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    margin-top: 15px;
+}
+/* Barre de recherche */
+.research input {
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: none;
+    background-color: #e0e0e0;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5), -3px -3px 6px rgb(255, 255, 255);
+    width: 200px;
+    font-size: 14px;
+    color: #333;
+    transition: box-shadow 0.3s ease;
+}
+.research input:focus {
+    outline: none;
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.5), -6px -6px 12px rgb(255, 255, 255);
+}
+/* Style du sélecteur de tri */
+#sort-select {
+    padding: 8px 15px;
+    border-radius: 20px;
+    background-color: #e0e0e0;
+    border: none;
+    font-size: 14px;
+    color: #333;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5), -3px -3px 6px rgb(255, 255, 255);
+    transition: box-shadow 0.3s ease;
+}
+#sort-select:hover {
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.5), -6px -6px 12px rgb(255, 255, 255);
+}
+
+/* Conteneur des amis */
+#friends-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    margin-top: 20px;
+}
+/* Carte d'ami */
+.friends-card {
+    background-color: #e0f7e9;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.747), -5px -5px 10px rgb(255, 255, 255);
+    display: flex;
+    gap: 15px;
+    cursor: move;
+}
+/* Effet de survol de la carte d'ami */
+.friends-card:hover {
+    box-shadow: inset -5px -5px 10px rgb(255, 255, 255), inset 5px 5px 10px rgba(0, 0, 0, 0.7);
+}
+/* Avatar de l'ami */
+.friends-card .avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 9999px;
+    overflow: hidden;
+    box-shadow: 5px 5px 10px rgb(0, 0, 0), -5px -5px 10px rgb(255, 255, 255);
+}
+.friends-card .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* Informations de l'ami */
+.friends-card .infos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+/* Nom de l'ami */
+.friends-card .name {
+    display: flex;
+    gap: 5px;
+}
+.friends-card .name p {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+}
+/* Actions de la carte (boutons) */
+.friends-card .actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+.friends-card .actions button {
+    padding: 4px 8px;
+    border: none;
+    border-radius: 20px;
+    background-color: #e0e0e0;
+    color: #333;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5), -3px -3px 6px rgb(255, 255, 255);
+}
+
+/* Effet de survol des boutons */
+.friends-card .actions button:hover {
+    background-color: #d1d1d1;
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.7), -6px -6px 12px rgba(255, 255, 255, 0.8);
+}
+
+/* Si vous voulez que l'ombre soit plus douce */
+.friends-card .actions button:active {
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5), inset -2px -2px 5px rgba(255, 255, 255, 0.8);
+}
+
