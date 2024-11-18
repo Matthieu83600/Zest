@@ -1,15 +1,20 @@
+#posts-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 /* Chaque post */
 .post {
     background-color: #e0f7e9;
-    margin-bottom: 25px;
-    padding: 15px;
+    margin-bottom: 30px;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.459),
                 -5px -5px 10px rgb(255, 255, 255);
-    width: 100%;
+    width: 70%;
 }
-/* En-tête du post */
-.post-header {
+/* En-tête du post, du commentaire */
+.post-header, .comment-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -17,25 +22,26 @@
 }
 .user-info {
     display: flex;
-    align-items: center; /* Aligne l'avatar et le nom verticalement */
+    align-items: center;
 }
-.post-header .avatar {
+.post-header .avatar, .comment-header .avatar {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
     margin-right: 10px;
 }
-.post-header .username {
+.post-header .username, .comment-header .username {
     font-weight: bold;
     font-size: 1.2em;
 }
-.post-header .timestamp {
+.post-header .timestamp, .comment-header .timestamp {
     color: #777;
     font-size: 0.9em;
+    font-style: italic;
 }
-/* Contenu du post */
-.post-content p {
+/* Contenu du post, du commentaire */
+.post-content p, .comment-content p {
     margin: 10px 0;
 }
 .post-content .post-image {
@@ -50,6 +56,92 @@
 .post-type {
     font-weight: bold;
     color: #ff6f61;
+}
+/* Actions des posts, des commentaires */
+.post-actions, .comment-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5px;
+    gap: 8px;
+}
+.toggle-comments, .comment-actions button, .submit-comment, .reply-form button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 10px;
+    background: #e0e0e0;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.808), -3px -3px 6px rgb(255, 255, 255);
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: #555;
+    transition: all 0.2s ease-in-out;
+}
+.toggle-comments:hover, .comment-actions button:hover, .submit-comment:hover, .reply-form button:hover {
+    box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.849), inset -3px -3px 6px rgb(255, 255, 255);
+    color: #000;
+}
+/* Commentaires */
+.hidden {
+  display: none !important;
+}
+.comments-section {
+  margin-top: 20px;
+  border-top: 2px solid #ddd;
+  padding-top: 10px;
+}
+.comments-container {
+  display: flex;
+  flex-direction: column;  
+}
+/* Un seul commentaire */
+.comment {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 15px;
+    background: #e0e0e0;
+    box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
+}
+.add-comment, .reply-form-container {
+    background-color: #e0f7e9;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.459),
+                inset -5px -5px 10px rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-between;
+}
+.add-comment textarea, .reply-form textarea {
+  width: 70%;
+  padding-left: 5px;
+  padding-top: 5px;
+  color: #333;
+  border: none;
+  border-radius: 15px;
+  outline: none;
+  background: #e0e0e0;
+  box-shadow: 
+    10px 10px 20px #bebebe,
+    -10px -10px 20px #ffffff;
+  transition: all 0.3s ease;
+  resize: none;
+}
+/* Effet au survol */
+.add-comment textarea:hover, .reply-form textarea:hover {
+  box-shadow: 
+    8px 8px 15px #bebebe,
+    -8px -8px 15px #ffffff;
+}
+/* Effet lorsque le textarea est actif (focus) */
+.add-comment textarea:focus, .reply-form textarea:focus {
+  box-shadow: 
+    inset 5px 5px 10px #bebebe,
+    inset -5px -5px 10px #ffffff;
+  background: #f0f0f0; /* Couleur légèrement plus claire pour l'effet actif */
 }
 /* Style pour la modale de l'image */
 .modal {
