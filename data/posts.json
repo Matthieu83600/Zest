@@ -11,7 +11,31 @@
       "image": "./assets/posts/sunset.jpg"
     },
     "type": "userPost",
-    "timestamp": "2024-11-15T19:45:00"
+    "timestamp": "2024-11-15T19:45:00",
+    "comments": [
+      {
+        "id": 101,
+        "user": {
+          "firstName": "Bob",
+          "lastName": "Martin",
+          "avatar": "./assets/avatars/avatar2.png"
+        },
+        "content": "C'était vraiment magique ! Je l'ai vu aussi de ma terrasse 😍.",
+        "timestamp": "2024-11-15T20:00:00",
+        "comments": []
+      },
+      {
+        "id": 102,
+        "user": {
+          "firstName": "Emma",
+          "lastName": "Lopez",
+          "avatar": "./assets/avatars/avatar6.png"
+        },
+        "content": "Superbe photo, Alice ! Merci de partager ce moment 💕.",
+        "timestamp": "2024-11-15T20:15:00",
+        "comments": []
+      }
+    ]
   },
   {
     "id": 2,
@@ -25,7 +49,31 @@
       "image": "./assets/posts/coffee.jpg"
     },
     "type": "userPost",
-    "timestamp": "2024-11-14T10:15:00"
+    "timestamp": "2024-11-14T10:15:00",
+    "comments": [
+      {
+        "id": 201,
+        "user": {
+          "firstName": "Alice",
+          "lastName": "Dupont",
+          "avatar": "./assets/avatars/avatar1.png"
+        },
+        "content": "Rien de tel qu'un bon café pour se réveiller ! ☀️",
+        "timestamp": "2024-11-14T10:30:00",
+        "comments": []
+      },
+      {
+        "id": 202,
+        "user": {
+          "firstName": "Lucas",
+          "lastName": "Bernard",
+          "avatar": "./assets/avatars/avatar7.png"
+        },
+        "content": "Un expresso ou un latte ? 😄",
+        "timestamp": "2024-11-14T10:45:00",
+        "comments": []
+      }
+    ]
   },
   {
     "id": 3,
@@ -39,7 +87,31 @@
       "image": "./assets/posts/hiking.jpg"
     },
     "type": "userPost",
-    "timestamp": "2024-11-13T18:30:00"
+    "timestamp": "2024-11-13T18:30:00",
+    "comments": [
+      {
+        "id": 301,
+        "user": {
+          "firstName": "David",
+          "lastName": "Moreau",
+          "avatar": "./assets/avatars/avatar4.png"
+        },
+        "content": "Ça donne envie de sortir ! Vous êtes allés où ?",
+        "timestamp": "2024-11-13T19:00:00",
+        "comments": []
+      },
+      {
+        "id": 302,
+        "user": {
+          "firstName": "Sophie",
+          "lastName": "Dupuis",
+          "avatar": "./assets/avatars/avatar8.png"
+        },
+        "content": "Les montagnes en arrière-plan sont splendides 😍.",
+        "timestamp": "2024-11-13T19:15:00",
+        "comments": []
+      }
+    ]
   },
   {
     "id": 4,
@@ -53,7 +125,31 @@
       "image": null
     },
     "type": "userPost",
-    "timestamp": "2024-11-10T14:50:00"
+    "timestamp": "2024-11-10T14:50:00",
+    "comments": [
+      {
+        "id": 401,
+        "user": {
+          "firstName": "Chloé",
+          "lastName": "Lemoine",
+          "avatar": "./assets/avatars/avatar3.png"
+        },
+        "content": "J'ai hâte de voir ça, David ! Toujours impressionnée par ton talent 😊.",
+        "timestamp": "2024-11-10T15:10:00",
+        "comments": []
+      },
+      {
+        "id": 402,
+        "user": {
+          "firstName": "Maxime",
+          "lastName": "Petit",
+          "avatar": "./assets/avatars/avatar9.png"
+        },
+        "content": "Peux-tu partager un aperçu ? 🎉",
+        "timestamp": "2024-11-10T15:20:00",
+        "comments": []
+      }
+    ]
   },
   {
     "id": 5,
@@ -67,7 +163,31 @@
       "image": "./assets/posts/animal_shelter.jpg"
     },
     "type": "userPost",
-    "timestamp": "2024-11-09T11:20:00"
+    "timestamp": "2024-11-09T11:20:00",
+    "comments": [
+      {
+        "id": 501,
+        "user": {
+          "firstName": "Alice",
+          "lastName": "Dupont",
+          "avatar": "./assets/avatars/avatar1.png"
+        },
+        "content": "Tellement important de sensibiliser sur ce sujet. Bravo pour ce post !",
+        "timestamp": "2024-11-09T11:45:00",
+        "comments": []
+      },
+      {
+        "id": 502,
+        "user": {
+          "firstName": "Nathan",
+          "lastName": "Durand",
+          "avatar": "./assets/avatars/avatar10.png"
+        },
+        "content": "J'ai adopté mon chien l'an dernier. Ça a changé ma vie 🐕❤️.",
+        "timestamp": "2024-11-09T12:00:00",
+        "comments": []
+      }
+    ]
   },
   {
     "id": 6,
