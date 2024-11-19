@@ -143,6 +143,60 @@
     inset -5px -5px 10px #ffffff;
   background: #f0f0f0; /* Couleur légèrement plus claire pour l'effet actif */
 }
+/* Style boutons like / dislike / love */
+.reaction-button {
+  padding: 10px;
+  border: none;
+  border-radius: 50%;
+  background: #f0f0f3;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.603), -4px -4px 6px #ffffff;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.reaction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  margin: 0 10px;
+}
+.reaction-checkbox {
+  display: none; /* On cache le vrai input */
+}
+.reaction-icon {
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.849), -5px -5px 10px rgb(255, 255, 255);
+  transition: all 0.2s ease;
+  background: #e0e0e0;
+}
+.reaction-checkbox:checked + .reaction-icon {
+  box-shadow: inset 5px 5px 10px #b0b0b0, inset -5px -5px 10px #ffffff;
+  transform: scale(1.1);
+  background: #d1d1d1;
+}
+/* Style appliqué lorsque la case est désactivée */
+.reaction.disabled-reaction {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+/* Style pour l'animation */
+.particle-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+.particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    opacity: 1;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
 /* Style pour la modale de l'image */
 .modal {
     display: none;          

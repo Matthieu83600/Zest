@@ -32,6 +32,18 @@ function createPost(post) {
         }
     </div>
     <div class="post-actions">
+        <label class="reaction">
+          <input type="checkbox" class="reaction-checkbox" onchange="handleReaction(this, 'like')">
+          <span class="reaction-icon like">👍</span>
+        </label>
+        <label class="reaction">
+          <input type="checkbox" class="reaction-checkbox" onchange="handleReaction(this, 'dislike')">
+          <span class="reaction-icon dislike">👎</span>
+        </label>
+        <label class="reaction">
+          <input type="checkbox" class="reaction-checkbox" onchange="handleReaction(this, 'love')">
+          <span class="reaction-icon love">❤️</span>
+        </label>
         <button class="toggle-comments">
             Voir les commentaires
         </button>
@@ -45,10 +57,21 @@ function createPost(post) {
         </div>
     </div>
   `;
+
+  // Ajouter des écouteurs pour les boutons de réaction
+  const reactionButtons = postElement.querySelectorAll(".reaction");
+  reactionButtons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      const reactionType = event.currentTarget.dataset.reaction;
+      triggerParticleAnimation(event.currentTarget, reactionType); // Animation de particules
+    });
+  });
+
   // Gérer les commentaires
   const commentsSection = postElement.querySelector(".comments-section");
   const commentsContainer = commentsSection.querySelector(".comments-container");
   const toggleCommentsButton = postElement.querySelector(".toggle-comments");
+
   // Ajouter les commentaires si existants
   if (comments && comments.length > 0) {
     comments.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
@@ -57,14 +80,14 @@ function createPost(post) {
       commentsContainer.appendChild(commentElement);
     });
   }
+
   // Gérer le clic pour afficher/masquer les commentaires
   toggleCommentsButton.addEventListener("click", () => {
     commentsSection.classList.toggle("hidden");
     const isHidden = commentsSection.classList.contains("hidden");
-    toggleCommentsButton.textContent = isHidden
-      ? `Voir les commentaires`
-      : `Masquer les commentaires`;
+    toggleCommentsButton.textContent = isHidden ? `Voir les commentaires` : `Masquer les commentaires`;
   });
+
   // Gérer l'ajout d'un nouveau commentaire
   const submitCommentButton = postElement.querySelector(".submit-comment");
   submitCommentButton.addEventListener("click", () => {
@@ -127,7 +150,7 @@ function createComment(comment) {
     <div class="comment-actions">
         <button class="reply-button">Répondre</button>
     </div>
-    <div class="reply-form hidden">
+    <div class="reply-form hidden reply-form-container">
       <textarea placeholder="Votre réponse..."></textarea>
       <button class="submit-reply">Publier</button>
     </div>
@@ -182,7 +205,6 @@ function createComment(comment) {
   return commentElement; // Retourne le commentaire créé
 }
 
-
 /* Fonction pour ouvrir l'image en plein écran */
 function openModal(imageSrc) {
   const modal = document.getElementById("image-modal");
@@ -205,6 +227,87 @@ window.onclick = function (event) {
     modal.style.display = "none";
   }
 };
+
+/* Evènement pour les input like / dislike / love */
+function handleReaction(checkbox, reactionType) {
+  const postElement = checkbox.closest(".post"); // Trouver le conteneur du post
+  const allCheckboxes = postElement.querySelectorAll(".reaction-checkbox"); // Toutes les cases à cocher du post
+  const reactionLabels = postElement.querySelectorAll(".reaction"); // Tous les labels .reaction
+
+  if (checkbox.checked) {
+    // L'utilisateur vient de cocher la case
+    triggerParticleAnimation(checkbox.closest(".reaction"), reactionType);
+  } else {
+    // L'utilisateur a décoché la case
+    console.log(`${reactionType} désactivé`);
+  }
+
+  // Désactiver les autres cases si une est cochée
+  allCheckboxes.forEach((otherCheckbox, index) => {
+    const reactionLabel = reactionLabels[index]; // Obtenir le label correspondant
+    if (otherCheckbox !== checkbox) {
+      otherCheckbox.disabled = checkbox.checked; // Désactive les autres cases si celle-ci est cochée
+      if (checkbox.checked) {
+        // Appliquer un style "disabled" au label correspondant
+        reactionLabel.classList.add("disabled-reaction");
+      } else {
+        // Retirer le style "disabled" du label lorsque toutes les cases sont décochées
+        reactionLabel.classList.remove("disabled-reaction");
+      }
+    }
+  });
+
+  // Si la case est décochée, réactiver toutes les cases et retirer les styles "disabled"
+  if (!checkbox.checked) {
+    allCheckboxes.forEach((otherCheckbox, index) => {
+      const reactionLabel = reactionLabels[index]; // Obtenir le label correspondant
+      otherCheckbox.disabled = false; // Réactive les autres cases
+      reactionLabel.classList.remove("disabled-reaction"); // Retirer le style "disabled"
+    });
+  }
+};
+
+/* Fonction d'animation particules */
+function triggerParticleAnimation(reactionElement, reactionType) {
+  const colors = {
+    like: "#4CAF50",
+    dislike: "#F44336",
+    love: "#FF69B4",
+  };
+
+  // Créer un conteneur de particules pour cette réaction
+  const particleContainer = document.createElement("div");
+  particleContainer.classList.add("particle-container");
+  reactionElement.appendChild(particleContainer);
+
+  for (let i = 0; i < 20; i++) {
+    const particle = document.createElement("span");
+    particle.classList.add("particle");
+    particle.style.backgroundColor = colors[reactionType];
+
+    const x = Math.random() * 200 - 100;
+    const y = Math.random() * 200 - 100;
+
+    particle.style.transform = `translate(${x}px, ${y}px) scale(0)`;
+    particleContainer.appendChild(particle);
+
+    // Déclencher l'animation après un léger délai
+    setTimeout(() => {
+      particle.style.transform = `translate(${x}px, ${y}px) scale(1.9)`;
+      particle.style.opacity = 0;
+    }, 50);
+
+    // Supprimer les particules après leur animation
+    setTimeout(() => {
+      particle.remove();
+    }, 1500);
+  }
+
+  // Nettoyer le conteneur après les particules
+  setTimeout(() => {
+    particleContainer.remove();
+  }, 1600);
+}
 
 // Charger les posts au chargement de la page
 document.addEventListener("DOMContentLoaded", loadPosts);
