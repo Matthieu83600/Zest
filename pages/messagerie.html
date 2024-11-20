@@ -15,11 +15,11 @@
             <div class="sidebar">
                 <h2>Conversations</h2>
                 <ul id="conversation-list">
-                    <!-- Les conversations seront listées ici -->
-                    <li class="conversation-item" data-id="1">Conversation 1</li>
-                    <li class="conversation-item" data-id="2">Conversation 2</li>
-                    <li class="conversation-item" data-id="3">Conversation 3</li>
+                    <!-- Les conversations seront listées dynamiquement -->
                 </ul>
+                <div id="empty-conversations" class="empty-conversations-message">
+                    <p>Aucune conversation disponible</p>
+                </div>
             </div>
             <!-- Zone principale pour afficher les messages -->
             <div class="chat-window">
@@ -40,6 +40,7 @@
         <p>Zest - <i class="fa-solid fa-copyright"></i> Tous droits réservés - 2024</p>
     </footer>
     <script src="../js/menu.js"></script>
+    <script src="../js/messaging.js"></script>
     <script src="https://kit.fontawesome.com/4b8d144e08.js" crossorigin="anonymous"></script>
 </body>
 </html>

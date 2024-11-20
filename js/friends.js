@@ -1,22 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // 1. Charger les données des conversations depuis le fichier JSON
-  fetch("../data/conversations.json")
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Erreur lors du chargement des conversations JSON.");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      // Stocker le JSON dans le localStorage
-      if (!localStorage.getItem("conversations")) {
-        localStorage.setItem("conversations", JSON.stringify(data));
-        console.log("Conversations initialisées avec succès.");
-      }
-    })
-    .catch((error) => console.error("Erreur lors du chargement des conversations :", error));
-
-  // 2. Sélectionner les éléments du DOM
+  // 1. Sélectionner les éléments du DOM
   const friendsContainer = document.getElementById("friends-container");
   const sortSelect = document.getElementById("sort-select");
   const searchInput = document.getElementById("search-input");
@@ -24,13 +7,11 @@ document.addEventListener("DOMContentLoaded", function () {
   // Fonction pour afficher les amis (tous les amis sont déjà dans le HTML)
   function updateDisplay() {
     const friendsCards = Array.from(friendsContainer.getElementsByClassName("friends-card"));
-
     // Filtrer les amis en fonction de la recherche
     let searchQuery = searchInput.value.toLowerCase();
     friendsCards.forEach((card) => {
       const firstname = card.querySelector(".firstname").textContent.toLowerCase();
       const lastname = card.querySelector(".lastname").textContent.toLowerCase();
-
       // Vérifier si le prénom ou le nom correspond à la requête de recherche
       if (firstname.includes(searchQuery) || lastname.includes(searchQuery)) {
         card.style.display = ""; // Afficher la carte
@@ -43,22 +24,19 @@ document.addEventListener("DOMContentLoaded", function () {
   // Fonction pour trier les amis
   function sortFriends(criteria) {
     const friendsCards = Array.from(friendsContainer.getElementsByClassName("friends-card"));
-
+    // Trier les amis par prénom ou nom de A à Z
     friendsCards.sort((a, b) => {
       const nameA =
         criteria === "firstname" ? a.querySelector(".firstname").textContent : a.querySelector(".lastname").textContent;
       const nameB =
         criteria === "firstname" ? b.querySelector(".firstname").textContent : b.querySelector(".lastname").textContent;
-
       if (nameA < nameB) return -1;
       if (nameA > nameB) return 1;
       return 0;
     });
-
     // Réafficher les amis triés
     friendsCards.forEach((card) => friendsContainer.appendChild(card));
   }
-
   // Ajouter un événement de tri
   sortSelect.addEventListener("change", function () {
     const selectedOption = sortSelect.value;
@@ -75,22 +53,20 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initialisation : afficher les amis filtrés au chargement
   updateDisplay();
 
-  // 3. Relier chaque bouton "Envoyer un message"
+  // 2. Relier chaque bouton "Envoyer un message"
   const messageButtons = document.querySelectorAll(".friends-card .actions button[data-id]");
   messageButtons.forEach((button) => {
     button.addEventListener("click", function () {
       // Récupérer l'ID de l'ami depuis l'attribut data-id
       const friendId = button.getAttribute("data-id");
-
       // Stocker l'ID de l'ami sélectionné dans localStorage
       localStorage.setItem("currentConversationId", friendId);
-
       // Rediriger vers la page de messagerie
       window.location.href = "../pages/messagerie.html";
     });
   });
-
-  // 4. Drag and Drop pour réorganiser les amis
+  
+  // 3. Drag and Drop pour réorganiser les amis
   const cards = document.querySelectorAll(".friends-card");
   const dropZone = document.getElementById("friends-container");
 
