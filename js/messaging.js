@@ -43,7 +43,18 @@ document.addEventListener("DOMContentLoaded", function () {
         listItem.classList.add("conversation-item");
         listItem.textContent = conversation.name;
         listItem.dataset.id = id;
-
+        // Créer un conteneur pour afficher le nom de la conversation et le dernier message
+        const conversationContent = document.createElement("div");
+        conversationContent.classList.add("conversation-content");
+        // Ajouter le dernier message
+        const lastMessage = conversation.messages[conversation.messages.length - 1].text;
+        const lastMessageElement = document.createElement("div");
+        lastMessageElement.classList.add("conversation-last-message");
+        lastMessageElement.textContent = lastMessage;
+        // Ajouter le contenu de la conversation à l'élément de la liste
+        conversationContent.appendChild(lastMessageElement);
+        // Ajouter le contenu de la conversation à l'élément de la liste
+        listItem.appendChild(conversationContent);
         // Ajouter un écouteur d'événements pour chaque conversation
         listItem.addEventListener("click", () => {
           localStorage.setItem("currentConversationId", id);
@@ -123,6 +134,9 @@ document.addEventListener("DOMContentLoaded", function () {
         messageElement.textContent = newMessage.text;
         document.getElementById("chat-messages").appendChild(messageElement);
 
+        // Mettre à jour la liste des conversations
+        renderConversations();  // Re-render la liste des conversations pour afficher le nouveau message
+          
         // Mettre à jour le titre
         loadConversation(currentConversationId);
         messageInput.value = ""; // Réinitialiser le champ de texte
