@@ -5,10 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zest - Messagerie</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/messaging.css">
 </head>
 <body>
     <!-- Header chargé dynamiquement -->
-    <main class="main-content"></main>
+    <main class="main-content">
+        <section class="messaging-app">
+            <!-- Sidebar pour les conversations -->
+            <div class="sidebar">
+                <h2>Conversations</h2>
+                <ul id="conversation-list">
+                    <!-- Les conversations seront listées ici -->
+                    <li class="conversation-item" data-id="1">Conversation 1</li>
+                    <li class="conversation-item" data-id="2">Conversation 2</li>
+                    <li class="conversation-item" data-id="3">Conversation 3</li>
+                </ul>
+            </div>
+            <!-- Zone principale pour afficher les messages -->
+            <div class="chat-window">
+                <div class="chat-header">
+                    <h2 id="chat-title">Sélectionnez une conversation</h2>
+                </div>
+                <div class="chat-messages" id="chat-messages">
+                    <!-- Les messages seront affichés ici -->
+                </div>
+                <form id="message-form" class="message-form">
+                    <input type="text" id="message-input" placeholder="Tapez votre message..." required />
+                    <button type="submit">Envoyer</button>
+                </form>
+            </div>
+        </section>
+    </main>
     <footer class="footer">
         <p>Zest - <i class="fa-solid fa-copyright"></i> Tous droits réservés - 2024</p>
     </footer>
