@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Vider la liste des conversations
     conversationList.innerHTML = "";
+
     const conversationIds = Object.keys(conversations);
 
     // Filtrer et afficher uniquement les conversations qui ont des messages
@@ -39,22 +40,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
       conversationsWithMessages.forEach((id) => {
         const conversation = conversations[id];
+        const lastMessage = conversation.messages[conversation.messages.length - 1];
+        // Créer l'élément de la liste
         const listItem = document.createElement("li");
         listItem.classList.add("conversation-item");
-        listItem.textContent = conversation.name;
         listItem.dataset.id = id;
-        // Créer un conteneur pour afficher le nom de la conversation et le dernier message
-        const conversationContent = document.createElement("div");
-        conversationContent.classList.add("conversation-content");
-        // Ajouter le dernier message
-        const lastMessage = conversation.messages[conversation.messages.length - 1].text;
-        const lastMessageElement = document.createElement("div");
-        lastMessageElement.classList.add("conversation-last-message");
-        lastMessageElement.textContent = lastMessage;
-        // Ajouter le contenu de la conversation à l'élément de la liste
-        conversationContent.appendChild(lastMessageElement);
-        // Ajouter le contenu de la conversation à l'élément de la liste
-        listItem.appendChild(conversationContent);
+
+        listItem.innerHTML = `
+        <div class="conversation-content">
+          <div class="conversation-header">
+            <span class="conversation-name">${conversation.name}</span>
+          </div>
+          <div class="conversation-last-message">
+            <span class="last-message-text">${lastMessage.text}</span>
+            <span class="last-message-timestamp">${lastMessage.timestamp}</span>
+          </div>
+        </div>
+        `;
         // Ajouter un écouteur d'événements pour chaque conversation
         listItem.addEventListener("click", () => {
           localStorage.setItem("currentConversationId", id);
@@ -73,6 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // 3. Fonction pour charger une conversation spécifique
+  // Fonction pour charger une conversation spécifique
   function loadConversation(id) {
     const conversations = JSON.parse(localStorage.getItem("conversations"));
     const conversation = conversations[id];
@@ -80,17 +83,50 @@ document.addEventListener("DOMContentLoaded", function () {
     const chatMessages = document.getElementById("chat-messages");
 
     if (conversation) {
+      // Mettre à jour le titre de la conversation
       chatTitle.textContent = `Conversation avec ${conversation.name}`;
+
+      // Vider l'affichage précédent
       chatMessages.innerHTML = "";
+
+      // Ajouter chaque message dans l'affichage
       conversation.messages.forEach((msg) => {
         const messageElement = document.createElement("div");
         messageElement.classList.add("message", msg.sender === "me" ? "sent" : "received");
-        messageElement.textContent = msg.text;
+
+        // Contenu du message
+        messageElement.innerHTML = `
+        <div class="message-info">
+          ${
+            msg.sender === "me"
+              ? `<img src="../assets/avatars/user_avatar.png" alt="John Doe" class="avatar">`
+              : `<img src="${conversation.avatar}" alt="${conversation.name}" class="avatar">`
+          }
+          <div class="message-meta">
+            <span class="message-sender">${msg.sender === "me" ? "John Doe" : conversation.name}</span>
+            <span class="message-timestamp">${msg.timestamp}</span>
+          </div>
+        </div>
+        <div class="message-text">${msg.text}</div>
+      `;
+
         chatMessages.appendChild(messageElement);
       });
+
+      // Scroller en bas de la conversation
       chatMessages.scrollTop = chatMessages.scrollHeight;
     } else {
+      // Aucun message à afficher
       chatTitle.textContent = "Sélectionnez une conversation";
+      chatMessages.innerHTML = `<p>Aucune conversation chargée.</p>`;
+    }
+
+    // Mettre en surbrillance l'élément sélectionné dans la liste des conversations
+    const conversationItems = document.querySelectorAll(".conversation-item");
+    conversationItems.forEach((item) => item.classList.remove("selected"));
+    const selectedItem = document.querySelector(`.conversation-item[data-id='${id}']`);
+    if (selectedItem) {
+      selectedItem.classList.add("selected");
     }
   }
 
@@ -116,30 +152,57 @@ document.addEventListener("DOMContentLoaded", function () {
       if (currentConversationId) {
         const conversations = JSON.parse(localStorage.getItem("conversations"));
         const conversation = conversations[currentConversationId];
+        // Détails de l'utilisateur
+        const user = {
+          firstName: "John",
+          lastName: "Doe",
+          avatar: "../assets/avatars/user_avatar.png",
+        };
+        // Générer l'horodatage du message envoyé
+        const timestamp = new Date().toLocaleString("fr-FR", {
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit",
+        });
+        // Créer le nouveau message
         const newMessage = {
           sender: "me",
           text: messageText,
+          timestamp: timestamp,
+          name: `${user.firstName} ${user.lastName}`,
+          avatar: user.avatar,
         };
-
         // Ajouter le message à la conversation
         conversation.messages.push(newMessage);
         conversations[currentConversationId] = conversation;
-
         // Sauvegarder la conversation mise à jour dans le localStorage
         localStorage.setItem("conversations", JSON.stringify(conversations));
-
         // Afficher le message dans la fenêtre de discussion
+        const chatMessages = document.getElementById("chat-messages");
         const messageElement = document.createElement("div");
         messageElement.classList.add("message", "sent");
-        messageElement.textContent = newMessage.text;
-        document.getElementById("chat-messages").appendChild(messageElement);
-
+        // Ajouter le contenu du message
+        // Ajouter le contenu du message
+        messageElement.innerHTML = `
+        <div class="message-avatar">
+          <img src="${newMessage.avatar}" alt="${newMessage.name}">
+        </div>
+        <div class="message-content">
+          <div class="message-metadata">
+            <span class="message-name">${newMessage.name}</span>
+            <span class="message-timestamp">${newMessage.timestamp}</span>
+          </div>
+          <div class="message-text">${newMessage.text}</div>
+        </div>
+        `;
+        chatMessages.appendChild(messageElement);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
         // Mettre à jour la liste des conversations
-        renderConversations();  // Re-render la liste des conversations pour afficher le nouveau message
-          
-        // Mettre à jour le titre
-        loadConversation(currentConversationId);
-        messageInput.value = ""; // Réinitialiser le champ de texte
+        renderConversations(); // Actualiser la liste des conversations
+        // Réinitialiser le champ de texte
+        messageInput.value = "";
       }
     }
   });
