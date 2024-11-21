@@ -5,12 +5,11 @@
 }
 /* Chaque post */
 .post {
-    background-color: #e0f7e9;
+    background-color: #aaaaaa;
     margin-bottom: 30px;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.459),
-                -5px -5px 10px rgb(255, 255, 255);
+    border-radius: 30px;
+    box-shadow:  5px 5px 8px #444444, -5px -5px 8px #ffffff;
     width: 70%;
 }
 /* En-tête du post, du commentaire */
@@ -28,6 +27,8 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    box-shadow:  5px 5px 8px #444444,
+             -5px -5px 8px #ffffff;
     object-fit: cover;
     margin-right: 10px;
 }
@@ -50,6 +51,7 @@
     object-fit: cover;
     border-radius: 10px;
     margin-top: 10px;
+    margin-bottom: 5px;
     cursor: pointer;
 }
 /* Style des types de posts */
@@ -62,21 +64,27 @@
     display: flex;
     justify-content: flex-end;
     margin-top: 5px;
-    gap: 8px;
+    gap: 5px;
+}
+/* Post responsive */
+@media (max-width: 500px) {
+  .post {
+    width: 90%;
+  }
 }
 .toggle-comments, .comment-actions button, .submit-comment, .reply-form button {
-    padding: 5px 10px;
+    padding: 5px 8px;
     border: none;
-    border-radius: 10px;
-    background: #e0e0e0;
-    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.808), -3px -3px 6px rgb(255, 255, 255);
+    border-radius: 30px;
+    background-color: #a0e45cef;
+    box-shadow:  5px 5px 8px #444444, -5px -5px 8px #ffffff;
     cursor: pointer;
     font-size: 0.8rem;
-    color: #555;
     transition: all 0.2s ease-in-out;
 }
 .toggle-comments:hover, .comment-actions button:hover, .submit-comment:hover, .reply-form button:hover {
-    box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.849), inset -3px -3px 6px rgb(255, 255, 255);
+    box-shadow: inset 5px 5px 8px #444444, inset -5px -5px 8px #ffffff;
+    background-color: #4CAF50;
     color: #000;
 }
 /* Commentaires */
@@ -84,7 +92,7 @@
   display: none !important;
 }
 .comments-section {
-  margin-top: 20px;
+  margin-top: 10px;
   border-top: 2px solid #ddd;
   padding-top: 10px;
 }
@@ -100,59 +108,50 @@
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 15px;
-    border-radius: 15px;
-    background: #e0e0e0;
-    box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
+    border-radius: 30px;
+    background: #aaaaaa;
+    box-shadow: inset 5px 5px 8px #444444, inset -5px -5px 8px #ffffff;
 }
 .add-comment, .reply-form-container {
-    background-color: #e0f7e9;
     margin-top: 10px;
     margin-bottom: 30px;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.459),
-                inset -5px -5px 10px rgb(255, 255, 255);
+    border-radius: 30px;
+    background: #aaaaaa;
+    box-shadow:  5px 5px 8px #444444, -5px -5px 8px #ffffff;
     display: flex;
     justify-content: space-between;
 }
 .add-comment textarea, .reply-form textarea {
   width: 70%;
-  padding-left: 5px;
+  padding-left: 8px;
   padding-top: 5px;
-  color: #333;
   border: none;
-  border-radius: 15px;
   outline: none;
-  background: #e0e0e0;
-  box-shadow: 
-    10px 10px 20px #bebebe,
-    -10px -10px 20px #ffffff;
+  border-radius: 30px;
+  background: #aaaaaa;
+  box-shadow:  5px 5px 10px #444444, -5px -5px 10px #ffffff;
   transition: all 0.3s ease;
   resize: none;
 }
-/* Effet au survol */
-.add-comment textarea:hover, .reply-form textarea:hover {
-  box-shadow: 
-    8px 8px 15px #bebebe,
-    -8px -8px 15px #ffffff;
-}
 /* Effet lorsque le textarea est actif (focus) */
 .add-comment textarea:focus, .reply-form textarea:focus {
-  box-shadow: 
-    inset 5px 5px 10px #bebebe,
-    inset -5px -5px 10px #ffffff;
-  background: #f0f0f0; /* Couleur légèrement plus claire pour l'effet actif */
+  background: linear-gradient(145deg, #b6b6b6, #999999);
+  box-shadow:  5px 5px 0px #444444, -5px -5px 0px #ffffff;
+}
+/* Commentaires responsive */
+@media (max-width: 500px) {
+  .add-comment, .reply-form-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .add-comment textarea, .reply-form textarea {
+    width: 100%;
+    margin-left: -5px;
+    resize: vertical;
+  }
 }
 /* Style boutons like / dislike / love */
-.reaction-button {
-  padding: 10px;
-  border: none;
-  border-radius: 50%;
-  background: #f0f0f3;
-  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.603), -4px -4px 6px #ffffff;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
 .reaction {
   display: inline-flex;
   align-items: center;
@@ -167,14 +166,14 @@
 .reaction-icon {
   padding: 10px;
   border-radius: 50%;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.849), -5px -5px 10px rgb(255, 255, 255);
+  background: #a0e45cef;
+  box-shadow:  5px 5px 8px #444444, -5px -5px 8px #ffffff;
   transition: all 0.2s ease;
-  background: #e0e0e0;
 }
 .reaction-checkbox:checked + .reaction-icon {
-  box-shadow: inset 5px 5px 10px #b0b0b0, inset -5px -5px 10px #ffffff;
+  box-shadow: inset 5px 5px 8px #444444, inset -5px -5px 8px #ffffff;
   transform: scale(1.1);
-  background: #d1d1d1;
+  background: #4CAF50;
 }
 /* Style appliqué lorsque la case est désactivée */
 .reaction.disabled-reaction {

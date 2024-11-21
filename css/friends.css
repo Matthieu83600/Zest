@@ -15,6 +15,7 @@
     .filter-sort {
         align-items: center;
         flex-direction: column;
+        gap: 10px;
     }
 }
 /* Barre de recherche */
@@ -22,11 +23,10 @@
     padding: 8px 15px;
     border-radius: 20px;
     border: none;
-    background-color: #e0e0e0;
+    background-color: #aaaaaa;
     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5), -3px -3px 6px rgb(255, 255, 255);
     width: 200px;
     font-size: 14px;
-    color: #333;
     transition: box-shadow 0.3s ease;
 }
 .research input:focus {
@@ -37,7 +37,7 @@
 #sort-select {
     padding: 8px 15px;
     border-radius: 20px;
-    background-color: #e0e0e0;
+    background-color: #aaaaaa;
     border: none;
     font-size: 14px;
     color: #333;
@@ -58,17 +58,17 @@
 }
 /* Carte d'ami */
 .friends-card {
-    background-color: #e0f7e9;
+    background-color: #aaaaaa;
     border-radius: 20px;
     padding: 20px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.747), -5px -5px 10px rgb(255, 255, 255);
+    box-shadow:  5px 5px 10px #444444, -5px -5px 10px #ffffff;
     display: flex;
     gap: 15px;
     cursor: move;
 }
 /* Effet de survol de la carte d'ami */
 .friends-card:hover {
-    box-shadow: inset -5px -5px 10px rgb(255, 255, 255), inset 5px 5px 10px rgba(0, 0, 0, 0.7);
+    box-shadow: inset 5px 5px 10px #444444, inset -5px -5px 10px #ffffff;
 }
 /* Avatar de l'ami */
 .friends-card .avatar {
@@ -76,7 +76,7 @@
     height: 80px;
     border-radius: 9999px;
     overflow: hidden;
-    box-shadow: 5px 5px 10px rgb(0, 0, 0), -5px -5px 10px rgb(255, 255, 255);
+    box-shadow:  5px 5px 10px #444444, -5px -5px 10px #ffffff;
 }
 .friends-card .avatar img {
     width: 100%;
@@ -110,21 +110,21 @@
     padding: 4px 8px;
     border: none;
     border-radius: 20px;
-    background-color: #e0e0e0;
+    background-color: #a0e45cef;
     color: #333;
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5), -3px -3px 6px rgb(255, 255, 255);
+    box-shadow:  5px 5px 10px #444444, -5px -5px 10px #ffffff;
 }
 /* Effet de survol des boutons */
 .friends-card .actions button:hover {
-    background-color: #d1d1d1;
-    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.7), -6px -6px 12px rgba(255, 255, 255, 0.8);
+    background: #4CAF50;
+    box-shadow:  5px 5px 10px #444444, -5px -5px 10px #ffffff;
 }
-/* Si vous voulez que l'ombre soit plus douce */
 .friends-card .actions button:active {
-    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5), inset -2px -2px 5px rgba(255, 255, 255, 0.8);
+    background-color: #4CAF50;
+    box-shadow: inset 5px 5px 10px #444444, inset -5px -5px 10px #ffffff;
 }
 /* Responsive pour les petits écrans */
 @media (max-width: 380px) {
