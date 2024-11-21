@@ -1,47 +1,60 @@
 .messaging-app {
   display: flex;
-  gap: 10px;
-  height: 100vh;
+  gap: 15px;
+  min-height: 100vh;
   padding: 20px;
 }
 /* Sidebar */
 .sidebar {
   width: 25%;
-  background-color: #e0e5ec;
+  background-color: #aaaaaa;
   border-radius: 20px;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1), -5px -5px 15px rgba(255, 255, 255, 0.7);
+  box-shadow:  6px 6px 12px #444444, -6px -6px 12px #ffffff;
   padding: 20px;
   overflow-y: auto;
 }
 .sidebar h2 {
   margin-top: 0;
   font-size: 20px;
-  color: #333;
 }
 /* Liste des conversations */
 #conversation-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   list-style: none;
   padding: 0;
   margin: 0;
 }
 .conversation-item {
-  padding: 10px;
+  padding: 15px;
   cursor: pointer;
-  background-color: #f0f0f3; /* Couleur de fond douce pour l'élément */
+  background-color: #f0f0f3;
   margin-bottom: 5px;
-  border-radius: 10px;
+  border-radius: 20px;
   transition: all 0.3s ease;
-  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px rgba(255, 255, 255, 0.7);
+  box-shadow: inset 5px 5px 10px #444444, inset -5px -5px 10px #ffffff;
 }
 .conversation-item:hover {
   background-color: #e4e7ea; /* Change au survol */
-  box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.2), inset -5px -5px 15px rgba(255, 255, 255, 0.8);
+  box-shadow: inset 5px 5px 15px #444444, inset -5px -5px 15px #ffffff;
 }
 .conversation-item.selected {
-  background-color: #d0e0ff;
-  color: #0044cc;
+  background-color: #a0e45cef;
   font-weight: bold;
   box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.2), inset -5px -5px 15px rgba(255, 255, 255, 0.8);
+}
+.conversation-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.conversation-header {
+  font-variant: small-caps;
+}
+.conversation-last-message {
+  text-align: right;
+  font-style: italic;
 }
 .empty-conversations-message {
   display: none; /* Masqué par défaut */
@@ -55,20 +68,20 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
   background-color: #e0e5ec;
   border-radius: 20px;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1), -5px -5px 15px rgba(255, 255, 255, 0.7);
+  box-shadow:  6px 6px 10px #444444, -6px -6px 10px #ffffff;
 }
 .chat-header {
   padding: 15px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #aaaaaa;
   background-color: #f0f0f3;
   border-radius: 20px 20px 0 0;
 }
 .chat-header h2 {
   margin: 0;
   font-size: 18px;
-  color: #333;
 }
 /* Zone des messages */
 .chat-messages {
@@ -88,53 +101,63 @@
 /* Formulaire d'envoi de message */
 .message-form {
   display: flex;
-  padding: 10px;
-  border-top: 1px solid #ddd;
+  gap: 10px;
+  padding: 15px;
+  border-top: 1px solid #aaaaaa;
   background-color: #f9f9f9;
   border-radius: 0 0 20px 20px;
 }
 #message-input {
-  flex-grow: 1;
   padding: 10px;
   font-size: 16px;
   border: none;
-  border-radius: 10px;
+  border-radius: 20px;
   background-color: #e0e5ec;
-  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px rgba(255, 255, 255, 0.7);
+  box-shadow: inset 5px 5px 12px #444444, inset -5px -5px 12px #ffffff;
+  outline: none;
+  width: 90%;
+}
+/* Effet lorsque le textarea est actif (focus) */
+#message-input:focus {
+  background: linear-gradient(145deg, #b6b6b6, #999999);
+  box-shadow:  5px 5px 10px #444444, -5px -5px 10px #ffffff;
 }
 button {
   padding: 10px 20px;
   font-size: 16px;
   border: none;
-  border-radius: 10px;
-  background-color: #4caf50;
-  color: white;
+  border-radius: 20px;
+  background-color: #a0e45cef;
   cursor: pointer;
   transition: background-color 0.3s;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1), -5px -5px 15px rgba(255, 255, 255, 0.7);
+  box-shadow: 5px 5px 15px #444444, -5px -5px 15px #ffffff;
 }
 button:hover {
-  background-color: #45a049;
+  background-color: #4CAF50;
+  color: white;
+  box-shadow: inset 5px 5px 15px #444444, inset -5px -5px 15px #ffffff;
 }
 button:active {
-  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.2), inset -5px -5px 10px rgba(255, 255, 255, 0.8);
+  box-shadow: inset 5px 5px 10px #444444, inset -5px -5px 10px #ffffff;
 }
 .message {
   display: flex;
-  align-items: flex-start;
-  margin: 10px 0;
-}
-.message.sent {
-  justify-content: flex-end;
-}
-.message.received {
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 15px 0;
+  padding: 10px 20px;
+  width: 45%;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #b6b6b6, #999999);
+  box-shadow: 5px 5px 6px #444444, -5px -5px 6px #999999;
 }
 .avatar {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   margin-right: 10px;
+  box-shadow:  6px 6px 10px #444444, -6px -6px 10px #ffffff;
 }
 .message-meta {
   display: flex;
@@ -149,4 +172,48 @@ button:active {
 }
 .message-text {
   margin-top: 5px;
+}
+/* Messagerie responsive */ 
+@media (max-width: 999px) {
+  .messaging-app {
+    flex-direction: column;
+    width: 95%;
+    margin: 0;
+    padding: 10px;
+  }
+  .sidebar {
+    width: auto;
+  }
+  #conversation-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 15px;
+  }
+  .conversation-item {
+    width: 40%;
+  }
+}
+@media (max-width: 700px) {
+  .message {
+    width: 80%
+  }
+}
+@media (max-width: 540px) {
+  .conversation-item {
+    width: 100%;
+  }
+}
+@media (max-width: 500px) {
+  .message-form {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  #message-input {
+    width: 100%;
+    margin-right: -10px;
+  }
+  button {
+    width: 100px;
+  }
 }

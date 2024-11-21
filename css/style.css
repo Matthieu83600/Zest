@@ -15,11 +15,10 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    background-color: #a7e667ef;
+    background-color: #a0e45cef;
     padding: 25px;
     height: auto;
-    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.2),
-                inset -5px -5px 10px rgb(255, 255, 255);
+    box-shadow:  5px 5px 8px #444444, -5px -5px 8px #ffffff;
     margin-bottom: 20px;
     display: flex;
     justify-content: space-between;
@@ -32,12 +31,10 @@ body {
     color: #000000;
     margin: 0;
     font-weight: bold;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.397),
-                 -2px -2px 5px rgb(255, 255, 255);
+    text-shadow: 3px 3px 5px #444444, -3px -3px 5px #ffffff;
 }
 .menu-header p {
     font-size: 1rem;
-    color: #3d3d3d;
     margin: 5px 0 20px;
     font-style: italic;
 }
@@ -53,17 +50,15 @@ body {
     color: #333;
     background-color: #a7e667;
     padding: 10px 20px;
-    border-radius: 10px;
+    border-radius: 70px;
     font-size: 16px;
     font-weight: bold;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.473),
-                -5px -5px 15px rgb(255, 255, 255);
+    box-shadow:  5px 5px 8px #444444, -5px -5px 8px #ffffff;
     transition: all 0.2s ease-in-out;
 }
 /* Effet au survol des liens */
 .nav-links a:hover {
-    box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.3),
-                inset -5px -5px 15px rgb(255, 255, 255);
+    box-shadow: inset 5px 5px 8px #444444, inset -5px -5px 8px #ffffff;
 }
 .profile {
     display: flex;             
@@ -76,9 +71,8 @@ body {
 .nav-links a.active {
     color: #fff; 
     background-color: #4CAF50;
-    border-radius: 10px;
-    box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.445),
-                inset -5px -5px 15px rgb(255, 255, 255);
+    border-radius: 70px;
+    box-shadow: inset 5px 5px 8px #444444, inset -5px -5px 8px #ffffff;
 }
 /* Menu responsive */
 @media (max-width: 840px) {
@@ -94,7 +88,6 @@ body {
         gap: 30px;
         padding-left: 0;
     }
-    
 }
 /* Contenu principal */
 .main-content {
@@ -114,9 +107,8 @@ body {
 }
 /* Footer */ 
 .footer {
-    background-color: #a7e667ef;
-    box-shadow: inset -5px -5px 10px rgba(0, 0, 0, 0.2),
-                inset 5px 5px 10px rgb(255, 255, 255);
+    background-color: #a0e45c;
+    box-shadow:  5px 5px 8px #444444, -5px -5px 8px #ffffff;
     position: relative;
     left: 0;
     right: 0;
