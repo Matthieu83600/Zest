@@ -11,7 +11,7 @@ function createHeader() {
   header.innerHTML = `
         <div class="menu-header">
             <h1>Zest</h1>
-            <p>Ajoutez un zest de partage à vos moments.</p>
+            <p>Ajoutez un zeste de partage à vos moments.</p>
         </div>
         <nav>
             <ul class="nav-links">

@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch("../data/conversations.json")
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Erreur lors du chargement des conversations JSON.");
+          throw new Error("Erreur lors du chargement des conversations.");
         }
         return response.json();
       })

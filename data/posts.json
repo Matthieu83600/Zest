@@ -7,7 +7,7 @@
       "avatar": "./assets/avatars/avatar1.png"
     },
     "content": {
-      "text": "Quel magnifique coucher de soleil hier soir 🌅!",
+      "text": "Quel magnifique coucher de soleil hier soir ! 🌅",
       "image": "./assets/posts/sunset.jpg"
     },
     "type": "userPost",
@@ -20,7 +20,7 @@
           "lastName": "Martin",
           "avatar": "./assets/avatars/avatar2.png"
         },
-        "content": "C'était vraiment magique ! Je l'ai vu aussi de ma terrasse 😍.",
+        "content": "C'était vraiment magique ! Je l'ai vu aussi de ma terrasse. 😍",
         "timestamp": "2024-11-15T20:00:00",
         "comments": []
       },
@@ -31,7 +31,7 @@
           "lastName": "Lopez",
           "avatar": "./assets/avatars/avatar6.png"
         },
-        "content": "Superbe photo, Alice ! Merci de partager ce moment 💕.",
+        "content": "Superbe photo, Alice ! Merci de partager ce moment. 💕",
         "timestamp": "2024-11-15T20:15:00",
         "comments": []
       }
@@ -45,7 +45,7 @@
       "avatar": "./assets/avatars/avatar2.png"
     },
     "content": {
-      "text": "Petite pause café pour bien commencer la journée ☕.",
+      "text": "Petite pause café pour bien commencer la journée. ☕",
       "image": "./assets/posts/coffee.jpg"
     },
     "type": "userPost",
@@ -83,7 +83,7 @@
       "avatar": "./assets/avatars/avatar3.png"
     },
     "content": {
-      "text": "Super sortie randonnée avec mes amis ce week-end. Les paysages étaient incroyables 🏞️!",
+      "text": "Super sortie randonnée avec mes amis ce week-end. Les paysages étaient incroyables ! 🏞️",
       "image": "./assets/posts/hiking.jpg"
     },
     "type": "userPost",
@@ -107,7 +107,7 @@
           "lastName": "Dupuis",
           "avatar": "./assets/avatars/avatar8.png"
         },
-        "content": "Les montagnes en arrière-plan sont splendides 😍.",
+        "content": "Les montagnes en arrière-plan sont splendides. 😍",
         "timestamp": "2024-11-13T19:15:00",
         "comments": []
       }
@@ -121,7 +121,7 @@
       "avatar": "./assets/avatars/avatar4.png"
     },
     "content": {
-      "text": "Mon nouveau projet de peinture avance bien 🎨. Hâte de vous montrer le résultat final!",
+      "text": "Mon nouveau projet de peinture avance bien. 🎨 Hâte de vous montrer le résultat final !",
       "image": null
     },
     "type": "userPost",
@@ -134,7 +134,7 @@
           "lastName": "Lemoine",
           "avatar": "./assets/avatars/avatar3.png"
         },
-        "content": "J'ai hâte de voir ça, David ! Toujours impressionnée par ton talent 😊.",
+        "content": "J'ai hâte de voir ça, David ! Toujours impressionnée par ton talent. 😊",
         "timestamp": "2024-11-10T15:10:00",
         "comments": []
       },
@@ -159,7 +159,7 @@
       "avatar": "./assets/avatars/avatar5.png"
     },
     "content": {
-      "text": "Une pensée pour tous les animaux abandonnés... Adoptez, ne shoppez pas ❤️🐾!",
+      "text": "Une pensée pour tous les animaux abandonnés... Adoptez, ne shoppez pas ! ❤️🐾",
       "image": "./assets/posts/animal_shelter.jpg"
     },
     "type": "userPost",
@@ -183,7 +183,7 @@
           "lastName": "Durand",
           "avatar": "./assets/avatars/avatar10.png"
         },
-        "content": "J'ai adopté mon chien l'an dernier. Ça a changé ma vie 🐕❤️.",
+        "content": "J'ai adopté mon chien l'an dernier. Ça a changé ma vie. 🐕❤️",
         "timestamp": "2024-11-09T12:00:00",
         "comments": []
       }
