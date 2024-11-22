@@ -99,13 +99,11 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="message-info">
           ${
             msg.sender === "me"
-              ? `<img src="../assets/avatars/user_avatar.png" alt="John Doe" class="avatar">`
-              : `<img src="${conversation.avatar}" alt="${conversation.name}" class="avatar">`
+              ? `<img src="../assets/avatars/user_avatar.png" alt="John Doe" class="message-avatar">`
+              : `<img src="${conversation.avatar}" alt="${conversation.name}" class="message-avatar">`
           }
-          <div class="message-meta">
             <span class="message-sender">${msg.sender === "me" ? "John Doe" : conversation.name}</span>
             <span class="message-timestamp">${msg.timestamp}</span>
-          </div>
         </div>
         <div class="message-text">${msg.text}</div>
       `;
@@ -182,20 +180,15 @@ document.addEventListener("DOMContentLoaded", function () {
         // Afficher le message dans la fenêtre de discussion
         const chatMessages = document.getElementById("chat-messages");
         const messageElement = document.createElement("div");
-        messageElement.classList.add("message", "sent");
-        // Ajouter le contenu du message
+        messageElement.classList.add("message");
         // Ajouter le contenu du message
         messageElement.innerHTML = `
-        <div class="message-avatar">
-          <img src="${newMessage.avatar}" alt="${newMessage.name}">
+        <div class="message-info">
+          <img class="message-avatar" src="${newMessage.avatar}" alt="${newMessage.name}">
+          <span class="message-sender">${newMessage.name}</span>
+          <span class="message-timestamp">${newMessage.timestamp}</span>
         </div>
-        <div class="message-content">
-          <div class="message-metadata">
-            <span class="message-name">${newMessage.name}</span>
-            <span class="message-timestamp">${newMessage.timestamp}</span>
-          </div>
-          <div class="message-text">${newMessage.text}</div>
-        </div>
+        <div class="message-text">${newMessage.text}</div>
         `;
         chatMessages.appendChild(messageElement);
         chatMessages.scrollTop = chatMessages.scrollHeight;
